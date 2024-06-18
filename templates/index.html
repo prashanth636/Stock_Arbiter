@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stock Analysis</title>
+    <link rel="stylesheet" href="static/styles.css">
+  </head>
+  <body>
+    <div id="fullscreen-div">
+      <h1 style="text-align: center; color: white">Volatility Arbitrage</h1>
+      <div id="form-div">
+        <form id="input-form" >
+          <label for="stocks">Stocks:</label>
+          <select id="stocks" name="stocks" required>
+            <option value="stock_pair_1">Select stocks</option>
+            <option value="stock_pair_1">ZN-ZB-30m</option>
+          </select>
+          <br><br>
+          <label for="volatility">Volatility:</label>
+          <input type="range" id="volatility" name="volatility" min="2" max="30" value="16">
+          <span id="volatility-value">16</span>
+          <br><br>
+          <label for="initial-portfolio">Initial Portfolio Value:</label>
+          <input type="number" id="initial-portfolio" name="initial-portfolio" value="1000000" required>
+          <br><br>
+          <label for="stop-loss">Stop Loss Threshold:</label>
+          <input type="number" id="stop-loss" name="stop-loss" step="0.01" value="0.015" required>
+          <br><br>
+          <label for="take-profit">Take Profit Threshold:</label>
+          <input type="number" id="take-profit" name="take-profit" step="0.01" value="0.03" required>
+          <br><br>
+          <label for="treasuries">treasuries per trade:</label>
+          <input type="number" id="treasuries" name="treasuries" value="1000" required>
+          <br><br>
+          <input type="submit" value="Get Analysis" class="submit-button" style="margin-top: 20px">
+        </form>
+      </div>
+      <div id="result-div">
+        <div class="back-div" style="padding: 24px;">
+          <div style="display:flex">
+            <button id="back-btn" style="width: 10%;"> &#60; Go Back </button>
+            <h2 style="width: 90%;text-align: center;"> Selected Options </h2>
+          </div>
+          <div id="id-template">
+
+          </div>
+        </div>
+        <div id="graph-container"></div>
+      </div>
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+      <script src="static/script.js"></script>
+    </div>
+  </body>
+</html>
